@@ -1,32 +1,41 @@
 use std::io;
-fn main() {
 
-    let error: &str = "An error accoured.";
+fn main () {
 
-    println!("be welcome player, enter ur name to continue:" );
+    println!("{:-^40}", "enter ur data, player: ");
 
-    let mut player_name: String = String::new();
+    let mut username: String = String::new();
+    let mut email: String = String::new();
+    let mut password: String = String::new();
+
+
 
     io::stdin()
-        .read_line(&mut player_name)
-        .expect(error);
+        .read_line(&mut username)
+        .expect("an error accoured.");
+
+    io::stdin()
+        .read_line(&mut email)
+        .expect("an error accoured.");
+
+    io::stdin()
+        .read_line(&mut password)
+        .expect("an error accoured.");
 
 
-    // this code repeat: -, 20 times
-    println!("{:-^40}", "welcome to your account info");
 
-
-    let online: bool = false;
-    let playing: bool = true;
-    
-    let favorite_games: [&str; 3] = ["Red dead Redemption II", "Dying light", "Resident Evil II"];
-
-
-    if online && playing == true {
-        return println!("{} is online playing {}", player_name.to_uppercase(), favorite_games[0]);
+    fn info_player (username: String, email: String, password: String, authenticated: bool) {
+        return println!("Info player account: \n username: {} \n email: {} \n password: {} \n is authenticated: {}", username, email, password, authenticated);
     }
-    else {
-        return println!("{} is offline, the last game he played was {}", player_name.to_uppercase(), favorite_games[2]);
-    };
+    
+
+
+    let info: () = info_player(username, email, password, true);
+
+
+    let favorite_games: [&str; 3] = ["Red dead Redemption II", "Resident Evil II Remake", "Dying light"];
+
+
+    println!("{:?} \n favorite games: \n {:?} \n last game played: {:?}", info, favorite_games, favorite_games[2]);
 
 }
