@@ -1,0 +1,3 @@
+tipos COP em rust
+    - tipos cop são tipos que podem ser copiados automaticamente | implicitamente.
+    - oque são cops. Cops são todos os tipos primitivos escalares do rust.
